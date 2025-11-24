@@ -1,13 +1,6 @@
 -- ------------------------------------------------------------------------------
 --   Database Population Script by Thomas Penny
 --   SQLite Compatible Version
---   
---   This script populates database tables using an existing People table
---   
---   REQUIREMENTS:
---   =============
---   - People table must exist in the current database with columns:
---     id, first_name, last_name, email, job_title, university
 -- ------------------------------------------------------------------------------
 
 -- Delete all data from tables to ensure the data is fresh
@@ -635,4 +628,5 @@ SELECT
     -- Stock: MIN_STOCK (10) to MIN_STOCK + STOCK_RANGE (501) units
     10 + ABS((w.Warehouse_ID * 333 + p.Product_ID * 777) % 491) AS Quantity -- MIN_STOCK, STOCK_RANGE
 FROM Warehouse w
+
 CROSS JOIN Product p;
